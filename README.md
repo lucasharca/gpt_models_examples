@@ -1,6 +1,6 @@
 # GPT Models Examples
 
-A comprehensive collection of examples demonstrating how to use OpenAI's GPT models with the modern OpenAI Python SDK (version 2.8.1). This project showcases various AI-powered applications including text generation, summarization, and chatbot functionality.
+A comprehensive collection of examples demonstrating how to use OpenAI's GPT models with the modern OpenAI Python SDK (version 2.8.1). This project showcases various AI-powered applications including text generation, summarization, chatbot functionality, and a complete Retrieval-Augmented Generation (RAG) system using LangChain.
 
 ## Features
 
@@ -18,7 +18,9 @@ A comprehensive collection of examples demonstrating how to use OpenAI's GPT mod
 - Modern LangChain patterns (no deprecated chains)
 - Explicit memory management
 - Document loading and retrieval
-- RAG (Retrieval-Augmented Generation) implementation
+- **RAG (Retrieval-Augmented Generation)** implementation with web content
+- Vector database integration (FAISS)
+- Conversational AI with chat history
 
 ## Installation
 
@@ -36,7 +38,7 @@ source .venv/bin/activate  # On Windows: .venv\Scripts\activate
 
 3. Install dependencies:
 ```bash
-pip install openai langchain langchain-openai langchain-community
+pip install openai langchain langchain-openai langchain-community langchain-text-splitters faiss-cpu pydantic
 ```
 
 4. Set up your API key:
@@ -83,6 +85,21 @@ response = chatbot.poetic_chatbot("When was cheese first made?")
 print(response)
 ```
 
+#### LangChain RAG Example
+```python
+from langchain_example import *  # Loads and processes 365DataScience courses
+
+# The example demonstrates:
+# 1. Web content loading from 365DataScience
+# 2. Document splitting and embedding
+# 3. FAISS vector storage
+# 4. Retrieval-augmented generation
+# 5. Conversational memory management
+
+# Run the complete RAG pipeline:
+python langchain_example.py
+```
+
 ### Running the Main Script
 ```bash
 python main.py
@@ -94,7 +111,7 @@ Open `GPT+Models+Updated.ipynb` for interactive examples and detailed explanatio
 - Text generation with customizable parameters
 - Summarization techniques
 - Chatbot implementation
-- Modern LangChain integration
+- Modern LangChain integration and RAG patterns
 
 ## Project Structure
 
@@ -106,6 +123,7 @@ gpt_models_examples/
 ├── text_generator.py     # Text generation class
 ├── summarize_text.py     # Text summarization class
 ├── simple_chatbot.py     # Poetic chatbot class
+├── langchain_example.py  # Complete RAG implementation with LangChain
 ├── GPT+Models+Updated.ipynb  # Comprehensive Jupyter notebook
 └── README.md             # This file
 ```
@@ -114,7 +132,7 @@ gpt_models_examples/
 
 - Python 3.8+
 - OpenAI API key
-- Dependencies: `openai`, `langchain`, `langchain-openai`, `langchain-community`
+- Dependencies: `openai`, `langchain`, `langchain-openai`, `langchain-community`, `langchain-text-splitters`, `faiss-cpu`, `pydantic`
 
 ## API Compatibility
 
